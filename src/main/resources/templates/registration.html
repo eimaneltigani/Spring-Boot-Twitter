@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html xlmns:th="http://www.thymeleaf.org" xlmns:sec="http://www.thymeleaf.org-extras-springsecurity4">
-	<head th:replace="/fragments/headerfiles"></head>
+	<head>
+		<title>Sign Up</title>
+		<th:block th:replace="/fragments/headerfiles.html"></th:block>
+	</head>
 	<body>
 		<div th:unless="${success}" class="container">
+			<div th:replace="/fragments/navbar"></div>
 			<h2>Sign up</h2>
 			<!-- th:object is saying that this info from the form needs to be routed to the user -->
 			<form th:action="@{/signup}" th:object="${user}" method="post" autocomplete="off">

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xlmns:th="http://www.thymeleaf.org" 
+	  xlmns:sec="http://www.thymeleaf.org-extras-springsecurity4">
+	<head>
+		<title>Feed</title>
+		<th:block th:replace="/fragments/headerfiles.html"></th:block>
+	</head>
+	<body>
+		<div class="container">
+			<div th:replace="/fragments/navbar"></div>
+			<h2>Tweets containing #<span th:text=${tag}"></span></h2>
+			<div class="list-group">
+				<div th:each="tweet:${tweetList}" class="list-group-item">
+					<div class="list-group-item list-group-item-action">
+    				<div class="d-flex w-100 justify-content-between">
+      					<a class="username" th:href="@{/users/} + ${tweet.user.username}">@<span th:text="${tweet.user.username}"></span></a><small> <span th:text="${#dates.format(tweet.createdAt, 'M/d/yy')}"></span></small>
+    				</div>
+    				<p class="mb-1" th:utext="${tweet.message}"></p>
+				</div>
+				</div>
+			    <div th:if="${#lists.isEmpty(tweetList)}">
+		 			<h3>No tweets contain this hashtag</h3>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html xlmns:th="http://www.thymeleaf.org" xlmns:sec="http://www.thymeleaf.org-extras-springsecurity4">
-	<head th:replace="/fragments/headerfiles"></head>
+	<head>
+		<title>New Tweet</title>
+		<th:block th:replace="/fragments/headerfiles.html"></th:block>
+	</head>
 	<body>
 		<div class="container">
+			<div th:replace="/fragments/navbar"></div>
 			<div class="jumbotron col-md-8 colld-md-offset-2">
 				<h2>New Tweet</h2>
 				<form th:action="@{/tweets}" th:object="${tweet}" method="post" autocomplete="off">

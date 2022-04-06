@@ -1,25 +1,13 @@
 <!DOCTYPE html>
-<html xlmns:th="http://www.thymeleaf.org" xlmns:sec="http://www.thymeleaf.org-extras-springsecurity4">
+<html xlmns:th="http://www.thymeleaf.org" 
+	  xlmns:sec="http://www.thymeleaf.org-extras-springsecurity4">
 	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=evice-width, inital-scale=1.0">
-		<title>Log in</title>
-		<!-- Add bootstrap stylesheets -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"> 
-		
-		<!-- our own stylesheet here -->
-		<link rel="stylesheet" href="/custom.css">
-		
-		<!-- Add bootstrap scripts -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    	
-    	<!-- Our own javascript -->
-    	<script src="/custom.js"></script>
+		<title>Feed</title>
+		<th:block th:replace="/fragments/headerfiles.html"></th:block>
 	</head>
 	<body>
 		<div class="container">
+			<div th:replace="/fragments/navbar"></div>
 			<h2>Tweets</h2>
 			<div th:if=${tweetList.isEmpty()}><h3>No tweets are available</h3></div>
 			<div class="list-group">
